@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Page</title>
+  <style>
+    body {margin: 0;}
+    section {height: 100vh;}
+    section:nth-child(1) {background: lightpink;}
+    section:nth-child(2) {background: lightblue;}
+    section:nth-child(3) {background: lightgreen;}
+    section:nth-child(4) {background: lightyellow;}
+
+  </style>
+</head>
+
+<body>
+  <section>page1 按上下键滚动</section>
+  <section>page2 按上下键滚动</section>
+  <section>page3 按上下键滚动</section>
+  <section>page4 按上下键滚动</section>
+
+  <script>
+    window.onkeydown = function(e) {
+      console.log(e)
+      if(e.key === 'ArrowDown') {
+        //键盘上下键默认事件只移动一点点，需要阻止默认事件
+        e.preventDefault()
+        window.scrollBy({
+          top: window.innerHeight,
+          behavior:"smooth"
+        })
+      }else if(e.key === 'ArrowUp') {
+        e.preventDefault()
+        window.scrollBy({
+          top: 0 - window.innerHeight,
+          behavior:"smooth"
+        })
+      }
+    }
+  </script>
+</body>
+
+</html>
